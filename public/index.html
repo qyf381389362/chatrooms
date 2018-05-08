@@ -10,17 +10,11 @@
 <body>
   <div id="content">
     <!-- 显示当前聊天室名称的div -->
-    <div id="room">
-
-    </div>
+    <div id="room"></div>
     <!-- 显示当前可用聊天室列表的div -->
-    <div id="room-list">
-
-    </div>
+    <div id="room-list"></div>
     <!-- 显示聊天信息的div -->
-    <div id="messages">
-
-    </div>
+    <div id="messages"></div>
     <!-- 表单 -->
     <form id="send-form">
       <!-- 用户用来输入聊天命令和消息的表单输入元素 -->
@@ -32,6 +26,16 @@
           <li>Change nickname: <code>/nick [username]</code></li>
           <li>Join/create room: <code>/join [room name]</code></li>
         </ul>
+
+        <!-- 外部引入的js文件 -->
+        <script src="/socket.io/socket.io.js" ></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"
+                type="text/javascript">
+        </script>
+        <script src="javascripts/chat.js" type="text/javascript"></script>
+        <script src="javascripts/chat_ui.js" type="text/javascript"></script>
       </div>
     </form>
   </div>

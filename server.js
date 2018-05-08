@@ -2,6 +2,7 @@ let http = require('http');
 let fs = require('fs');
 let path = require('path'); // 内置的path模块提供了与文件系统路径相关的功能
 let mime = require('mime'); // 附加的mime模块有根据文件扩展名得出mime类型的能力
+let chatServer = require('./lib/chat_server'); // 引入socket服务器
 let cache = {};
 
 // 请求的文件不存在时发送404
@@ -15,7 +16,7 @@ function send404 (response) {
 function sendFile (response, filePath, fileContents) {
   response.writeHead(
     200,
-    {'Content-type': mime.lookup(path.basename(filePath))}
+    {'Content-type': mime.getType(path.basename(filePath))}
   );
   response.end(fileContents);
 }
@@ -58,3 +59,6 @@ let server = http.createServer(function (request, response) {
 server.listen(3000, function () {
   console.log('Server listening on port 3000.');
 });
+
+// 设置Socket.IO服务器
+chatServer.listen(server);
