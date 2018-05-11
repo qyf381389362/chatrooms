@@ -3,7 +3,7 @@ let fs = require('fs');
 let path = require('path'); // 内置的path模块提供了与文件系统路径相关的功能
 let mime = require('mime'); // 附加的mime模块有根据文件扩展名得出mime类型的能力
 let chatServer = require('./lib/chat_server'); // 引入socket服务器
-let cache = {};
+let cache = {}; // 用来缓存文件内容的对象
 
 // 请求的文件不存在时发送404
 function send404 (response) {
